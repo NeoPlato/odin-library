@@ -36,26 +36,18 @@ select {
     appearance: none;
 }
 
-button,
-input[type="submit"],
-input[type="reset"] {
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
 /* Formatting */
 
 @font-face {
     font-family: PT;
     font-display: swap;
-    src: url("/fonts/PT_Sans/PTSans-Regular.ttf");
+    src: url(./fonts/PTSans-Regular.ttf);
 }
 
 @font-face {
     font-family: PT-Bold;
     font-display: swap;
-    src: url("/fonts/PT_Sans/PTSans-Bold.ttf");
+    src: url(./fonts/PTSans-Bold.ttf);
 }
 
 body {
@@ -67,24 +59,97 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     background-color: #19c09b;
     font-size: 1.5rem;
 }
 
-figure {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+header button {
+    font-size: inherit;
+    border: none;
+    background: none;
+    font-family: PT-Bold;
 }
 
-figure .img {
-    width: max(30px, 3rem);
-    height: max(30px, 3rem);
-    background: radial-gradient(
-        circle at center,
-        rgba(255, 165, 0, 1) 0%,
-        rgba(255, 0, 0, 1) 90%
-    );
+header img {
+    height: 4rem;
+}
+
+main article {
+    background-color: #ffebc0;
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 0.65rem 0.4rem;
+    border-radius: 16px;
+}
+
+main {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+}
+
+article h6 {
+    font-size: 1rem;
+    justify-self: end;
+}
+
+button.pen {
+    border: none;
+    height: 2rem;
+    width: 2rem;
+    background-color: #00ce6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
+    grid-column: 2;
+    justify-self: end;
+    box-shadow: 0px 0px 2.6px 1.1px #3d3d3d;
+}
+
+.pen svg {
+    height: 1.5rem;
+}
+
+article input[type="checkbox"] {
+    border: 1px solid #39b54a;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    color: green;
+}
+
+article input[type="checkbox"]:checked::before {
+    content: url(./img/tick.svg);
+    font-size: 1.25em;
+    position: relative;
+    bottom: 9px;
+    left: 2px;
+}
+
+article.entry svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+article.entry button {
+    display: flex;
+    padding: 0.25rem;
+    border: 2px solid;
+    border-radius: 50%;
+    background: none;
+}
+
+article.entry {
+    background: none;
+    border: 2px dashed;
+    align-self: center;
+    height: 100%;
 }
