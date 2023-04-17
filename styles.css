@@ -127,15 +127,28 @@ button.pen:active {
     height: 1.5rem;
 }
 
-input[type="checkbox"] {
-    border: 1px solid #39b54a;
+article input[type="checkbox"] {
     width: 1em;
     height: 1em;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    color: red;
+}
+
+article input[type="checkbox"]::before {
+    content: "■";
+    font-size: 1.5em;
+    translate: calc(3em/400) calc(-3em/40);
+}
+
+article input[type="checkbox"]:checked {
+    border-color: #39b54a;
     color: green;
 }
 
-input[type="checkbox"]:checked::before {
+article input[type="checkbox"]:checked::before {
     content: url(./img/tick.svg);
     font-size: 1.25em;
     position: relative;
@@ -178,7 +191,7 @@ main form {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2effc7;
+    background-color: #f4cc68;
     border-radius: 1rem;
     padding: 2rem;
 }
@@ -190,18 +203,36 @@ main form * {
 form input {
     padding: 0.25rem;
     width: clamp(120px, 50vw, 250px);
-    border-radius: 4px;
+    border-radius: 0.5rem;
+    background-color: #fff1a9;
 }
 
 form input[type="checkbox"] {
     width: 1.25em;
     height: 1.25em;
+    background: none;
+    border: 1px solid red;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+form input[type="checkbox"]::before {
+    content: "■";
+    font-size: 1.5em;
+    translate: 0 calc(-1em/16);
+}
+
+form input[type="checkbox"]:checked {
+    border: 1px solid green;
+    color: green;
 }
 
 form input[type="checkbox"]:checked::before {
-    font-size: 1.25em;
-    bottom: 9px;
-    left: 2px;
+   content: "✔";
+   translate: calc(1em/16) 0;
 }
 
 form label {
@@ -213,12 +244,31 @@ form input[type="number"] {
     text-align: end;
 }
 
+form button line {
+    stroke: black;
+    stroke-width: 4px;
+}
+
+form button:active {
+    transform: scale(1.1);
+    transition: 100ms ease-in;
+}
+
+form button[type="button"] {
+    grid-column: 1/3;
+    justify-self: end;
+    width: fit-content;
+    border: none;
+    background: none;
+}
+
 form button[type="submit"] {
     grid-column: 1/3;
     justify-self: center;
-    padding: 0.25rem 1rem;
     border: none;
-    background-color: rgb(110, 110, 110);
-    color: white;
-    border-radius: 18px;
+    background-color: #fff1a9;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    width: max(120px, 15ch);
+    height: 2em;
 }
