@@ -9,7 +9,7 @@ It's pure JavaScript now. It catalogues books by all the relevant information an
 
 ### Skill level
 
-*    [ ]  Create a spine for the project to exist on visually
-*    [ ]  Make a working Book class that does everything mentioned here
+*    [x]  Create a spine for the project to exist on visually
+*    [x]  Make a working Book class that does everything mentioned here
 *    [ ]  Connect the two like electricity to lights.
-*    [ ]  Make it prettier (maybe.)
+*    [ ]  Add more designs and design elements.
