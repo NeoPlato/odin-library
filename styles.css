@@ -94,7 +94,7 @@ main article {
 main {
     padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
     gap: 1rem;
 }
 
@@ -140,7 +140,7 @@ article input[type="checkbox"] {
 article input[type="checkbox"]::before {
     content: "■";
     font-size: 1.5em;
-    translate: calc(3em/400) calc(-3em/40);
+    margin-bottom: calc(1em/8);
 }
 
 article input[type="checkbox"]:checked {
@@ -149,11 +149,7 @@ article input[type="checkbox"]:checked {
 }
 
 article input[type="checkbox"]:checked::before {
-    content: url(./img/tick.svg);
-    font-size: 1.25em;
-    position: relative;
-    bottom: 9px;
-    left: 2px;
+    content: "✔";
 }
 
 article.entry {
@@ -187,13 +183,17 @@ main form {
     grid-template-columns: auto auto;
     align-items: center;
     gap: 1rem 0.5rem;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #f4cc68;
     border-radius: 1rem;
     padding: 2rem;
+}
+
+main form.hidden {
+    display: none;
 }
 
 main form * {
@@ -217,12 +217,13 @@ form input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     padding: 0;
+    transition: 250ms ease-in;
 }
 
 form input[type="checkbox"]::before {
     content: "■";
     font-size: 1.5em;
-    translate: 0 calc(-1em/16);
+    translate: 0 calc(-5em/64);
 }
 
 form input[type="checkbox"]:checked {
