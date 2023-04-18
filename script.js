@@ -1,9 +1,9 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-vars */
-function openForm() {
+function openForm(submitAction) {
   const form = document.querySelector("form");
   form.classList.remove("hidden");
-  form.addEventListener("submit", addEntry);
+  form.addEventListener("submit", submitAction);
 }
 
 function exitForm() {
