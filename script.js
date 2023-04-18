@@ -1,10 +1,22 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-unused-vars */
 function openForm() {
-  document.querySelector("form").classList.remove("hidden");
+  const form = document.querySelector("form");
+  form.classList.remove("hidden");
+  form.addEventListener("submit", addEntry);
 }
 
 function exitForm() {
-  document.querySelector("form").classList.add("hidden");
+  const form = document.querySelector("form");
+  clearForm(form);
+}
+
+function clearForm(form) {
+  Array.from(form.querySelectorAll("input")).map((input) => {
+    input.value = "";
+  });
+  form.removeEventListener("submit", addEntry);
+  form.classList.add("hidden"); // Assumes that all use of this function requires it to be hidden afterwards
 }
 
 function addEntry(event) {
