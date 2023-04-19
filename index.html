@@ -21,7 +21,7 @@
         </svg>
       </button>
       <script>
-        document.querySelector("article.entry button").addEventListener("click", openForm);
+        document.querySelector("article.entry button").addEventListener("click", openForm.bind(addEntry));
       </script>
     </article>
     <form action="" method="get" class="hidden">
@@ -43,10 +43,6 @@
       <label for="book-read">Read: </label>
       <input type="checkbox" name="read" id="book-read">
       <button type="submit">Add to library</button>
-      <script>
-        const form = document.querySelector("form");
-        form.addEventListener("submit", addEntry);
-      </script>
     </form>
   </main>
 </body>
