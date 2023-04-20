@@ -29,7 +29,7 @@ function addEntry(event) {
     formData.get("title"),
     formData.get("author"),
     formData.get("pages"),
-    Boolean(formData.get("read"))
+    formData.get("read") !== null
   );
   book.addBook();
   clearForm(event.target);
@@ -42,9 +42,8 @@ function editEntry(event) {
   entries[0].textContent = formData.get("title");
   entries[1].textContent = formData.get("author");
   entries[2].textContent = formData.get("pages");
-  event.target.querySelectorAll("input:last-of-type").checked = Boolean(
-    formData.get("read")
-  );
+  this.querySelector("input").checked =
+    formData.get("read") !== null;
   clearForm(event.target);
 }
 
@@ -111,7 +110,9 @@ Book.prototype.penSVG = {
   clickEvent() {
     const article = this.parentElement.parentElement;
     const entries = Array.from(article.querySelectorAll("p"));
-    const inputs = Array.from(document.querySelectorAll("form input:nth-of-type(-n+3)"));
+    const inputs = Array.from(
+      document.querySelectorAll("form input:nth-of-type(-n+3)")
+    );
     entries.forEach((entry, index) => {
       const input = inputs[index];
       input.value = entry.textContent;
