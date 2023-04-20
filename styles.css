@@ -89,6 +89,7 @@ main article {
     gap: 0.65rem 0.4rem;
     border-radius: 16px;
     padding: 1.5rem;
+    place-content: center;
 }
 
 main {
